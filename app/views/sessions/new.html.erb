@@ -1,0 +1,23 @@
+<div class="users-signin-login-wrapper top-blank">
+  <div class="container">
+    <div class="row">
+      <div class="users-signin-login-container col-md-offset-4 col-md-4">
+        <div class="titles center">
+          <p><%= link_to "新規登録", new_user_path, class: "title link gray inline" %></p>
+          <p class="title stick inline gray">ログイン</p>
+        </div>
+        <div class="entry-field">
+          <%= form_for :session, url: login_path do |f| %>
+            <div class="form-group">
+              <%= f.text_field :email, placeholder: " メールアドレス", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, placeholder: " パスワード", class: "form-control" %>
+            </div>
+            <%= f.submit "登録", class: "form-control gray submit-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

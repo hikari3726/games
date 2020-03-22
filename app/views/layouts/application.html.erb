@@ -18,12 +18,15 @@
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <%= link_to "Games", root_path, class: "navbar-brand" %>
-          <ul class="nav navbar-nav navbar-right list-inline">
+          <ul class="nav navbar-nav navbar-right">
             <li class="nav-signin">
-              <%= link_to "新規登録", "#" %>
+              <%= link_to "新規登録", new_user_path %>
+            </li>
+            <li class="gray">
+              <p>|</p>
             </li>
             <li class="nav-login">
-              <%= link_to "ログイン", "#" %>
+              <%= link_to "ログイン", login_path %>
             </li>
           </ul>
         </div>

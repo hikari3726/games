@@ -1,10 +1,27 @@
-<div class="users-new-wrapper top-blank">
+<div class="users-signin-login-wrapper top-blank">
   <div class="container">
     <div class="row">
-      <div class="users-new-container col-md-offset-4 col-md-4">
+      <div class="users-signin-login-container col-md-offset-4 col-md-4">
         <div class="titles center">
-          <p class="title signin inline gray">新規登録</p>
-          <p><%= link_to "ログイン", "#", class: "title link login gray inline" %></p>
+          <p class="title stick inline gray">新規登録</p>
+          <p><%= link_to "ログイン", login_path, class: "title link gray inline" %></p>
+        </div>
+        <div class="entry-field">
+          <%= form_for @user do |f| %>
+            <div class="form-group">
+              <%= f.text_field :name, placeholder: " 名前", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :email, placeholder: " メールアドレス", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, placeholder: " パスワード (6文字以上)", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password_confimation, placeholder: " 確認用パスワード", class: "form-control" %>
+            </div>
+            <%= f.submit "登録", class: "form-control gray submit-btn" %>
+          <% end %>
         </div>
       </div>
     </div>
