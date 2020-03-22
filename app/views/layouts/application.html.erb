@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Games</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+   
+  </head>
+  
+  <body>
+    <div class="all-container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <%= link_to "Games", root_path, class: "navbar-brand" %>
+          <ul class="nav navbar-nav navbar-right list-inline">
+            <li class="nav-signin">
+              <%= link_to "新規登録", "#" %>
+            </li>
+            <li class="nav-login">
+              <%= link_to "ログイン", "#" %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="main">
+        <%= yield %>
+      </div>
+      <footer>
+      <p class="footer-text gray center">Games</p>
+      </footer>
+    </div>
+  </body>
+</html>

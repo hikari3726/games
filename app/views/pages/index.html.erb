@@ -1,0 +1,63 @@
+<div class="top-wrapper">
+  
+  <div class="top-container">
+    <div class="images">
+      <%= image_tag "game1.jpg",class: "game-image" %>
+      <%= image_tag "game2.jpg",class: "game-image" %>
+      <%= image_tag "game3.jpg",class: "game-image" %>
+    </div>
+    <div class="text-container">
+      <h1 class="text center">お気に入りのゲームを見つけよう!</h1>
+      <div class="buttoms center">
+      <%= link_to "#", class: "btn btn-default" do %>
+        <%= image_tag "pen.jpg", class: "text-image" %>最新投稿
+      <% end %>
+      <%= link_to "#", class: "btn btn-default" do %>
+        <%= image_tag "rank.jpg", class: "text-image" %>ランキング
+      <% end %>
+      <%= link_to "#", class: "btn btn-default" do %>
+        <%= image_tag "glasses.jpg", class: "text-image" %>投稿検索
+      <% end %>
+      </div>
+    </div>
+　</div>
+　
+　<div class="container">
+　  <div class="row">
+      <div class="row-container col-md-offset-1 col-md-10">
+        <div class="item">
+          <p class ="item-name gray">最新投稿</p>
+          <div class="post">
+            
+          </div>
+        </div>
+        <div class="item">
+          <p class="item-name gray">ランキング</p>
+          <div class="post">
+            
+          </div>
+        </div>
+        <div class="item">
+          <p class="item-name gray">投稿検索</p>
+          <div class="post">
+            
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    (function($, window) {
+    $(function() {
+      $('.images').not('.slick-initialized').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        });
+     });
+    })(jQuery, window);
+  </script>
+  
+</div>
+    
