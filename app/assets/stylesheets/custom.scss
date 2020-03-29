@@ -13,6 +13,18 @@ html, body {
   padding-bottom: 47px;
 }
 
+.alert-danger {
+  background-color: white;
+}
+
+.alert {
+  margin-top: 60px;
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
 .inline {
   display: inline-block;
 }
@@ -28,7 +40,7 @@ html, body {
 }
 
 .top-blank {
-  margin-top: 61px;
+  margin-top: 130px;
 }
 
 .link:hover {
@@ -126,7 +138,7 @@ footer {
 /*新規登録・ログイン*/
 .users-signin-login-wrapper {
   .users-signin-login-container {
-    margin-top: 100px;
+    margin-top: 160px;
   }
   
   .stick {
@@ -136,7 +148,7 @@ footer {
   .title {
     font-size: 15px;
     font-weight: 100;
-    padding: 15px 50px;
+    padding: 15px 58px;
   }
   
   .entry-field {
@@ -147,4 +159,34 @@ footer {
     background-color: #FFCC99;
     border-color: #FFCC99;
   }
+  
+  .error_msg {
+    font-size: 14px;
+    font-weight: normal;
+    color: #a94442;
+    display: block;
+    margin: 0;
+  }
+}
+
+/*ユーザー詳細*/
+.up-user-show-container {
+  padding-bottom: 50px;
+  border-bottom: thin solid #e7e7e7;
+  
+  .user-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+  
+  .user-introduction {
+    margin-left: 50px;
+  }
+  
+  .self-introduction {
+    font-size: 15px;
+    font-weight: lighter;
+  }
+
 }

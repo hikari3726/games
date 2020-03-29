@@ -1,0 +1,7 @@
+<% if model.errors.any? %>
+  <div id="error_explanation" class=" alert-danger">
+      <%= model.errors.full_messages_for(sub)[0] %>
+  </div>
+<% end %>
+
+

@@ -19,20 +19,40 @@
         <div class="container">
           <%= link_to "Games", root_path, class: "navbar-brand" %>
           <ul class="nav navbar-nav navbar-right">
-            <li class="nav-signin">
-              <%= link_to "新規登録", new_user_path %>
-            </li>
-            <li class="gray">
-              <p>|</p>
-            </li>
-            <li class="nav-login">
-              <%= link_to "ログイン", login_path %>
-            </li>
+            <% if logged_in? %>
+              <li class="nav-user">
+                <%= link_to current_user.name, user_path(id: current_user.id) %>
+              </li>
+              <li class="gray">
+                <p>|</p>
+              </li>
+              <li class="nav-logout">
+                <%= link_to "ログアウト", logout_path, method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-signin">
+                <%= link_to "新規登録", new_user_path %>
+              </li>
+              <li class="gray">
+                <p>|</p>
+              </li>
+              <li class="nav-login">
+                <%= link_to "ログイン", login_path %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </nav>
       <div class="main">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+        <% end %>
         <%= yield %>
+        <script>
+          $(function() {
+            $(".alert").fadeOut(5000);
+          });
+        </script>
       </div>
       <footer>
       <p class="footer-text gray center">Games</p>

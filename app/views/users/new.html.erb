@@ -1,4 +1,4 @@
-<div class="users-signin-login-wrapper top-blank">
+<div class="users-signin-login-wrapper">
   <div class="container">
     <div class="row">
       <div class="users-signin-login-container col-md-offset-4 col-md-4">
@@ -8,17 +8,22 @@
         </div>
         <div class="entry-field">
           <%= form_for @user do |f| %>
+            
             <div class="form-group">
+              <%= render "layouts/error_messages", model: f.object, sub: :name  %>
               <%= f.text_field :name, placeholder: " 名前", class: "form-control" %>
             </div>
             <div class="form-group">
+              <%= render "layouts/error_messages", model: f.object, sub: :email  %>
               <%= f.text_field :email, placeholder: " メールアドレス", class: "form-control" %>
             </div>
             <div class="form-group">
+              <%= render "layouts/error_messages", model: f.object, sub: :password  %>
               <%= f.password_field :password, placeholder: " パスワード (6文字以上)", class: "form-control" %>
             </div>
             <div class="form-group">
-              <%= f.password_field :password_confimation, placeholder: " 確認用パスワード", class: "form-control" %>
+              <%= render "layouts/error_messages", model: f.object, sub: :password_digest  %>
+              <%= f.password_field :password_confirmation, placeholder: " 確認パスワード", class: "form-control" %>
             </div>
             <%= f.submit "登録", class: "form-control gray submit-btn" %>
           <% end %>

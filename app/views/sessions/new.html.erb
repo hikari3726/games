@@ -1,4 +1,4 @@
-<div class="users-signin-login-wrapper top-blank">
+<div class="users-signin-login-wrapper">
   <div class="container">
     <div class="row">
       <div class="users-signin-login-container col-md-offset-4 col-md-4">
@@ -9,15 +9,54 @@
         <div class="entry-field">
           <%= form_for :session, url: login_path do |f| %>
             <div class="form-group">
+              <!--<input type="text" id="email" name="email">-->
+              <span id="email_error" class="error_msg email"></span>
               <%= f.text_field :email, placeholder: " メールアドレス", class: "form-control" %>
             </div>
             <div class="form-group">
+              <!--<input type="text" id="password" name="password">-->
+              <span id="password_error" class="error_msg password"></span>
               <%= f.password_field :password, placeholder: " パスワード", class: "form-control" %>
             </div>
-            <%= f.submit "登録", class: "form-control gray submit-btn" %>
+            <%= f.submit "登録", class: "form-control gray submit-btn login-btn" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+  
+ <!-- <script>
+    $(function() {
+      $('.login-btn').click(function() {
+        if(!input_check()){
+          return false;
+        }
+      });
+    });
+    
+    function input_check() {
+      var result = true;
+      
+      $('.email').removeClass('inp_error');
+      $('.password').removeClass('inp_error');
+      
+      $("#email_error").empty();
+      $("#password_error").empty();
+      
+      var email = $(".email").val();
+      var password = $(".password").val();
+      
+      if(email == "") {
+        $("#email_error").html("メールアドレスを入力してください");
+        $(".email").addClass('inp_error');
+        result = false;
+      }
+      
+      if(password == "") {
+        $("#password_error").html("パスワードを入力してください");
+        $(".password").addClass('inp_error');
+        result = false;
+      }
+    }
+  </script> -->
 </div>
