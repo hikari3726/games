@@ -136,13 +136,13 @@ footer {
 }
 
 /*新規登録・ログイン*/
-.users-signin-login-wrapper {
-  .users-signin-login-container {
+.user-signin-login-wrapper {
+  .user-signin-login-container {
     margin-top: 160px;
   }
   
   .stick {
-    border-bottom: thin solid #FFCC99;
+    border-bottom: medium solid #FFCC99;
   }
     
   .title {
@@ -188,5 +188,37 @@ footer {
     font-size: 15px;
     font-weight: lighter;
   }
+  
+  .edit-btn {
+    margin-left: 30px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #FFCC99;
+    border-color: #FFCC99;
+    color: #777777;
+  }
+}
 
+.under-user-show-container {
+  .post-favorite {
+    padding: 50px 100px 20px 100px;
+  }
+  
+  .post {
+    border-bottom: medium solid #FFCC99;
+  }
+  
+  .favorite {
+    border-bottom: thin solid #e7e7e7;
+  }
+}
+
+/*ユーザー編集*/
+.user-edit-container {
+  .edit-btn:hover {
+    background-color: #FFCC99;
+    border-color: #FFCC99;
+    color: #777777;
+  }
 }

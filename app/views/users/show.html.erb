@@ -1,24 +1,28 @@
 <div class="user-show-wrapper top-blank">
-  <div class="containe">
+  <div class="container">
     <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="up-user-show-container">
+          <%= image_tag "live.jpg",class: "user-image inline" %>
+          <div class="user-introduction inline">
+            <h3><%= @user.name %></h3>
+            <%= link_to "フォロー　", "#", class: "gray link" %>
+            <p class="inline gray">|</p>
+            <%= link_to "　フォロワー", "#", class: "gray link" %>
+            <% if @user.description.present? %>
+              <p class="self-introduction gray"><%= @user.description %></p> 
+            <% end %>
+            <%= link_to "設定", edit_user_path(id: current_user.id), class: "gray btn btn-default edit-btn" %>
+          </div>
+        </div>
       
-      <div class="up-user-show-container col-md-offset-2 col-md-8">
-        <%= image_tag "live.jpg",class: "user-image inline" %>
-        <div class="user-introduction inline">
-          <h3><%= @user.name %></h3>
-          <%= link_to "フォロー　", "#", class: "gray link" %>
-          <p class="inline gray">|</p>
-          <%= link_to "　フォロワー", "#", class: "gray link" %>
-          <% if @user.description.present? %>
-            <p class="self-introduction gray"><%= @user.description %></p> 
-          <% end %>
+        <div class="under-user-show-container">
+          <div class="center">
+            <p class="gray inline post-favorite post">投稿</p>
+            <p><%= link_to "お気に入り", "#", class: "inline link gray post-favorite favorite" %></p>
+          </div>
         </div>
       </div>
-      
-      <div class="under-user-show-container">
-        
-      </div>
-      
     </div>
   </div>
 </div>

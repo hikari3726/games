@@ -1,14 +1,13 @@
-<div class="users-signin-login-wrapper">
+<div class="user-signin-login-wrapper">
   <div class="container">
     <div class="row">
-      <div class="users-signin-login-container col-md-offset-4 col-md-4">
+      <div class="user-signin-login-container col-md-offset-4 col-md-4">
         <div class="titles center">
           <p class="title stick inline gray">新規登録</p>
           <p><%= link_to "ログイン", login_path, class: "title link gray inline" %></p>
         </div>
         <div class="entry-field">
           <%= form_for @user do |f| %>
-            
             <div class="form-group">
               <%= render "layouts/error_messages", model: f.object, sub: :name  %>
               <%= f.text_field :name, placeholder: " 名前", class: "form-control" %>
