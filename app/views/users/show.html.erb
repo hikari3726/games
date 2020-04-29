@@ -21,6 +21,20 @@
             <p class="gray inline post-favorite post">投稿</p>
             <p><%= link_to "お気に入り", "#", class: "inline link gray post-favorite favorite" %></p>
           </div>
+          
+          <div class="topic-container">
+            <% @user.topics.each_slice(4) do |topic1,topic2,topic3, topic4| %>
+            
+            <div class="retu">
+             <%= render partial: "topics", locals: { topic: topic1 } %>
+             <%= render partial: "topics", locals: { topic: topic2 } %>
+             <%= render partial: "topics", locals: { topic: topic3 } %>
+             <%= render partial: "topics", locals: { topic: topic4 } %>
+            </div>
+              
+            <% end %>
+          </div>
+          
         </div>
       </div>
     </div>
