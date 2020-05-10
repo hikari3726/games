@@ -2,19 +2,19 @@ ja:
   activerecord:
     attributes:
       user:
+        image: 画像
         name: ニックネーム
         email: メールアドレス
         password_digest: パスワード
         password: パスワード
         description: 自己紹介
       
-      topic:
+      game:
         image: 画像
         title: ゲーム名
         genre: ジャンル
         participation: 遊べる人数
         target_age: 対象年齢
         play_time: プレイ時間
-        price: 価格
-        evalution: 評価
-        description: レビュー
+        price: 参考価格
+        description: ゲーム内容

@@ -1,0 +1,61 @@
+<%= form_for @game do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="form-group">
+      <div class="game-image center">
+        <% if @game.image.present? %>
+          <%= image_tag @game.image.url, id: :img_prev %>
+        <% else %>
+          <%= image_tag "live.jpg", id: :img_prev %>
+        <% end %>
+      </div>
+      <div class="center">
+        <label>
+          <div class="image-select btn btn-default">画像を選択</div>
+            <%= f.file_field :image, id: :game_img, class: "image-word"%>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :title, class:'control-label' %>
+      <%= render "layouts/error_messages", model: f.object, sub: :title  %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  
+    <div class="left-form inline">
+      <div class="form-group">
+        <%= f.label :genre, class:'control-label' %>
+        <%= render "layouts/error_messages", model: f.object, sub: :genre  %>
+        <%= f.select :genre, [["ブラフ", "ブラフ"], ["正体隠匿", "正体隠匿"], ["タイル配置", "タイル配置"], ["拡大再生産", "拡大再生産"], ["ドラフト", "ドラフト"], ["ワーカープレイスメント", "ワーカープレイスメント"] ,["陣取り", "陣取り"], ["デッキ構築", "デッキ構築"], ["競り", "競り"], ["協力", "協力"], ["表現", "表現"], ["アクション", "アクション"]] , :prompt => "選択してください", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :participation, class:'control-label' %>
+        <%= render "layouts/error_messages", model: f.object, sub: :participation  %>
+        <%= f.select :participation, [["1人", "1人"], ["2人", "2人"], ["3人", "3人"], ["4人", "4人"], ["5人", "5人"], ["6人以上", "6人以上"]], :prompt => "選択してください", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :target_age, class:'control-label' %>
+        <%= render "layouts/error_messages", model: f.object, sub: :target_age  %>
+        <%= f.select :target_age, [["2才以上", "2才以上"], ["3才以上", "3才以上"], ["4才以上", "4才以上"], ["5才以上", "5才以上"], ["6才以上", "6才以上"], ["7才以上", "7才以上"] ,["8才以上", "8才以上"], ["9才以上", "9才以上"], ["10才以上", "10才以上"], ["11才以上", "11才以上"], ["12才以上", "12才以上"], ["13才以上", "13才以上"], ["14才以上", "14才以上"], ["15才以上", "15才以上"]], :prompt => "選択してください", class:"form-control" %>
+      </div>
+    </div>
+            
+    <div class="right-form inline">
+      <div class="form-group">
+        <%= f.label :play_time, class:'control-label' %>
+        <%= render "layouts/error_messages", model: f.object, sub: :play_time  %>
+        <%= f.select :play_time, [["10分", "10分"], ["20分", "20分"], ["30分", "30分"], ["40分", "40分"], ["50分", "50分"], ["60分", "60分"], ["70分", "70分"], ["80分", "80分"], ["90分", "90分"], ["100分", "100分"], ["110分", "110分"], ["120分", "120分"]], :prompt => "選択してください", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price, class:'control-label' %>
+        <%= render "layouts/error_messages", model: f.object, sub: :price  %>
+        <%= f.select :price, [["1000円以下", "1000円以下"], ["1000円代", "1000円代"], ["2000円代", "2000円代"], ["3000円代", "3000円代"], ["4000円代", "4000円代"], ["5000円以上", "5000円代"]], :prompt => "選択してください", class:"form-control" %>
+      </div>  
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :description, class:'control-label' %>
+      <%= render "layouts/error_messages", model: f.object, sub: :description  %>
+      <%= f.text_area :description, placeholder: 'ゲーム内容を記入しよう（500文字以内）', rows: 7,  class: "form-control" %>
+    </div>
+  <%= f.submit register, class: "btn btn-default form-control" %>
+<% end %>

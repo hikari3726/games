@@ -13,7 +13,7 @@ html, body {
   padding-bottom: 47px;
 }
 
-.alert-danger {
+.danger {
   background-color: white;
 }
 
@@ -184,6 +184,10 @@ footer {
   padding-bottom: 50px;
   border-bottom: thin solid #C0C0C0;
   
+  .image {
+    width: 20%;
+  }
+  
   .user-image {
     height: 150px;
     width: 150px;
@@ -192,15 +196,12 @@ footer {
   
   .user-introduction {
     margin-left: 50px;
+    width: 70%;
   }
   
   .self-introduction {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: lighter;
-  }
-  
-  .edit-btn {
-    margin-left: 30px;
   }
   
   .edit-btn:hover {
@@ -210,6 +211,7 @@ footer {
 }
 
 .under-user-show-container {
+  margin-bottom: 50px;
   .post-favorite {
     padding: 30px 100px 10px 100px;
   }
@@ -224,33 +226,26 @@ footer {
   
   .topic-container {
     margin-top: 20px;
-  
-    .image {
-      margin: 0;
-      border-radius: 10%;
-    }
-    
-    .item {
-      text-decoration: none;
-    }
-    
-    .topics {
-      width: 24%;
-    }
   }
 }
 
 /*ユーザー編集*/
 .user-edit-container {
-  margin-top: 160px;
-  .edit-btn:hover {
-    background-color: #FFCC99;
-    border-color: #FFCC99;
+  margin-top: 120px;
+
+  #img_prev {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
   }
   
-  .image-btn:hover {
-    background-color: #FFCC99;
-    border-color: #FFCC99;
+  .topic-image {
+    margin-bottom: 20px;
+  }
+  
+  .image-word {
+    display: none;
   }
   
   #user-image {
@@ -258,19 +253,34 @@ footer {
   }
 }
 
-/*投稿*/
-.topic-new-container {
-  margin-top: 160px;
+/*ゲーム投稿*/
+.game-new-container {
+  margin-top: 120px;
   
   .title {
     border-bottom: thin solid #C0C0C0;
   }
   
-  .topic {
+  .game {
     font-size: 19px;
     margin-left: 10px;
     padding-left: 10px;;
     border-left: thick solid #FFCC99;
+  }
+  
+  #img_prev {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 10%;
+  }
+  
+  .game-image {
+    margin-bottom: 20px;
+  }
+  
+  .image-word {
+    display: none;
   }
   
   .entry-field {
@@ -285,9 +295,134 @@ footer {
   .right-form {
     width: 40%;
   }
+}
 
-  .submit-btn:hover {
-    background-color: #FFCC99;
-    border-color: #FFCC99;
+/*ゲーム一覧*/
+.game-index-container {
+  margin-top: 120px;
+  padding-bottom: 70px;
+  
+  .title {
+    border-bottom: thin solid #C0C0C0;
+    margin-bottom: 10px;
+  }
+  
+  .link-btn {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+  .game {
+    font-size: 19px;
+    margin-left: 10px;
+    padding-left: 10px;;
+    border-left: thick solid #FFCC99;
+  }
+  
+  .image {
+    border-radius: 10%;
+    height: 200px;
+    width: 200px;
+  }
+    
+  .item {
+    text-decoration: none;
+  }
+    
+  .topics {
+    width: 32%;
+    margin-bottom: 20px;
+  }
+    
+  .game-title {
+    color: #333333;
+    margin-bottom: 5px;
+  }
+    
+  .des {
+    color: #777777;
+    font-size: 12px;
+    margin: 0;
+    height: 105px;
+    padding: 0 15px;
+  }
+  
+  .eva {
+    color: #777777;
+    font-size: 12px;
+  }
+}
+
+/*ゲーム投稿詳細*/
+.game-show-container {
+  margin-top: 120px;
+  padding-bottom: 70px;
+  
+  .title-container {
+    border-bottom: thin solid #C0C0C0;
+    margin-bottom: 30px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-left: 10px;
+    padding-left: 10px;;
+    border-left: thick solid #FFCC99;
+  }
+  
+  .explanation {
+    margin-bottom: 30px;
+  }
+  
+  .left-container {
+    width: 37%;
+    margin-left: 25px;
+    
+    .image {
+      height: 230px;
+      width: auto;
+      padding-bottom: 20px;
+    }
+  }
+  
+  .right-container {
+    width: 57%;
+    vertical-align: top;
+  }
+  
+  .item-title {
+    font-size: 19px;
+    margin-left: 10px;
+    padding-left: 10px;;
+    border-left: thick solid #FFCC99;
+  }
+  
+  .review-container {
+    .review-title-container {
+      border-bottom: thin solid #C0C0C0;
+      margin-bottom: 10px;
+    }
+    
+    .link-btn {
+      text-align: right;
+    }
+  }
+}
+
+/*レビュー投稿*/
+.review-new-container {
+  margin-top: 120px;
+  padding-bottom: 70px;
+  
+  .title-container {
+    border-bottom: thin solid #C0C0C0;
+    margin-bottom: 30px;
+  }
+  
+  .title {
+    font-size: 19px;
+    margin-left: 10px;
+    padding-left: 10px;;
+    border-left: thick solid #FFCC99;
   }
 }

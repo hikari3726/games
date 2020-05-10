@@ -6,32 +6,52 @@
         <div class="entry-field">
           <%= form_for @user do |f| %>
             <div class="form-group">
-              <% if current_user.image? %>
-                <%= image_tag current_user.image, class: "user-image" %>
-              <% else %>
-                <%= image_tag "man.jpeg", class: "def-image" %>
-              <% end %>
-              <label>
-                <p class="inline btn btn-default image-btn">画像を選択</p>
-                <%= f.file_field :image, id: 'user-image' %>
-              </label>
+              <div class="topic-image center">
+                <% if @user.image.present? %>
+                  <%= image_tag @user.image.url, id: :img_prev %>
+                <% else %>
+                  <%= image_tag "live.jpg", id: :img_prev %>
+                <% end %>
+              </div>
+              <div class="center">
+                <label>
+                  <div class="btn btn-default">画像を選択</div>
+                  <%= f.file_field :image, id: :user_img, class: "image-word"%>
+                </label>
+              </div>
             </div>
             <div class="form-group">
               <%= f.label :name, class:'control-label' %>
+              <%= render "layouts/error_messages", model: f.object, sub: :name  %>
               <%= f.text_field :name, class: "gray form-control" %>
             </div>
             <div class="form-group">
               <%= f.label :description, class:'control-label' %>
-              <%= f.text_area :description, placeholder: '自己紹介を記入しよう（300文字以内）', row: 7, class: "form-control"%>
+              <%= render "layouts/error_messages", model: f.object, sub: :description  %>
+              <%= f.text_area :description, placeholder: '自己紹介を記入しよう（150文字以内）', rows: 7,  class: "form-control" %>
             </div>
-            <div class="form-group">
-              <%= f.hidden_field :password %>
-            </div>
-            <%= f.submit "変更を保存", class: "edit-btn gray form-control" %>
+            <%= f.submit "変更を保存", class: "btn btn-default form-control" %>
           <% end %>
         </div>
       </div>
       
     </div>
   </div>
+  <script>
+  $(function() {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#user_id").change(function() {
+      readURL(this);
+    });
+  });
+</script>
+
 </div>

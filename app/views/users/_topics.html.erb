@@ -1,12 +1,12 @@
 <% if topic != nil %>
   <div class="topics inline">
     <%= link_to "#", class: 'item' do %>
-      <p><%= image_tag topic.image.url, class: 'image' %></p>
-      <p class="title"><%= topic.title %></p>
-      <p class="des gray"><%= topic.description %></p>
+      <p class='center'><%= image_tag topic.image.url, class: 'image' %></p>
+      <p class="title center"><%= topic.title.truncate(10) %></p>
+      <p class="des"><%= topic.description.truncate(50) %></p>
     <% end %>
     <%= link_to "#", class: 'item' do %>
-      <p class="user-name">by <%= topic.user.name %></p>
+      <p class="user-name center">by <%= topic.user.name %></p>
     <% end %>
   </div>
 <% end %>

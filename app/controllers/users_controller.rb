@@ -18,15 +18,16 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find_by(id: params[:id])
-    if @user.update(user_params)
-      redirect_to user_path(id: params[:id]), success: "変更しました"
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
+      redirect_to root_path, notice: "他のアカウントから変更できません"
+    elsif @user.update(user_params)
+      redirect_to user_path(current_user.id), success: "変更しました"
     else
-      flash.now[:danger] = "失敗しました"
       render :edit
     end
   end

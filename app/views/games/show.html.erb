@@ -1,0 +1,46 @@
+<div class="game-show-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="game-show-container col-md-offset-2 col-md-8">
+        
+        <div class="title-container">
+          <p class="title"><%= @game.title %></p>
+        </div>
+        
+        <div class="explanation">
+          <div class="left-container inline">
+            <%= image_tag @game.image.url, class: "image" %>
+            <div class="reference">
+              <p class="genre">ジャンル　：　<%= @game.genre %></p>
+              <p class="participation">参加人数　：　<%= @game.participation %></p>
+              <p class="target_age">対象年齢　：　<%= @game.target_age %></p>
+              <p class="play_time">プレイ時間　：　<%= @game.play_time %></p>
+              <p class="price">参考価格　：　<%= @game.price %></p>
+              <p class="evaluation">評価　：　</p>
+            </div>
+          </div>
+        
+          <div class="right-container inline">
+            <div class="title-container">
+              <p class="item-title gray">ゲーム内容</p>
+            </div>
+            <p class="description"><%= @game.description %></p>
+          </div>
+          <div class="center">
+            <%= link_to "説明文編集", edit_game_path(id: params[:id]), class: "btn btn-default" %>
+          </div>
+        </div>
+        
+        <div class="review-container">
+          <div class="review-title-container">
+            <p class="item-title gray">レビュー</p></p>
+          </div>
+          <div class="link-btn">
+            <%= link_to "レビューを書く", new_review_path, class: "btn btn-default" %>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
