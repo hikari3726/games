@@ -9,12 +9,11 @@
           <%= link_to "ゲーム投稿", new_game_path, class: "btn btn-default" %>
         </div>
         <div class="game-topic">
-          <% @games.each_slice(4) do |game1, game2, game3, game4| %>
+          <% @games.each_slice(3) do |game1, game2, game3| %>
             <div class="line">
              <%= render partial: "games", locals: { game: game1 } %>
              <%= render partial: "games", locals: { game: game2 } %>
              <%= render partial: "games", locals: { game: game3 } %>
-             <%= render partial: "games", locals: { game: game4 } %>
             </div>
           <% end %>
         </div>

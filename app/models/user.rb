@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   validates :name, presence: true, length: { maximum: 30 }, uniqueness: true
   VALID_PASSWORED_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
@@ -11,4 +12,8 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :topics
+  has_many :reviews
+  has_many :favorites
+  has_many :favorite_games, through: :favorites, source: 'game'
+  
 end

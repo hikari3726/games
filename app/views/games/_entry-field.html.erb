@@ -5,7 +5,7 @@
         <% if @game.image.present? %>
           <%= image_tag @game.image.url, id: :img_prev %>
         <% else %>
-          <%= image_tag "live.jpg", id: :img_prev %>
+          <%= image_tag "noimage-game.jpg", id: :img_prev %>
         <% end %>
       </div>
       <div class="center">
@@ -48,7 +48,7 @@
       <div class="form-group">
         <%= f.label :price, class:'control-label' %>
         <%= render "layouts/error_messages", model: f.object, sub: :price  %>
-        <%= f.select :price, [["1000円以下", "1000円以下"], ["1000円代", "1000円代"], ["2000円代", "2000円代"], ["3000円代", "3000円代"], ["4000円代", "4000円代"], ["5000円以上", "5000円代"]], :prompt => "選択してください", class:"form-control" %>
+        <%= f.select :price, [["1000円以下", "1000円以下"], ["1000円台", "1000円台"], ["2000円台", "2000円台"], ["3000円台", "3000円台"], ["4000円台", "4000円台"], ["5000円以上", "5000円代"]], :prompt => "選択してください", class:"form-control" %>
       </div>  
     </div>
   

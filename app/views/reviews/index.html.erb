@@ -1,0 +1,23 @@
+<div class="review-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="review-index-container col-md-offset-2 col-md-8">
+        <div class="title-container">
+          <p class="title">レビュー一覧</p>
+        </div>
+        
+        <div class="reviews-container">
+          <% @reviews.each_slice(4) do |review1, review2, review3, review4| %>
+            <div class="line">
+             <%= render partial: "reviews", locals: { review: review1 } %>
+             <%= render partial: "reviews", locals: { review: review2 } %>
+             <%= render partial: "reviews", locals: { review: review3 } %>
+             <%= render partial: "reviews", locals: { review: review4 } %>
+            </div>
+          <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

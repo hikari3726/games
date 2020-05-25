@@ -1,0 +1,21 @@
+<div class="introduction-container">
+  <div class="image inline">
+    <% if @user.image.present? %>
+      <%= image_tag @user.image.url, class: "user-image center" %>
+    <% else %>
+      <%= image_tag "noimage-man.jpg", class: "user-image center" %>
+    <% end %>
+  </div>
+  <div class="user-introduction inline">
+    <h3 class="user-name"><%= @user.name %></h3>
+    <%= link_to "フォロー　", "#", class: "gray link" %>
+    <p class="inline gray">|</p>
+    <%= link_to "　フォロワー", "#", class: "gray link" %>
+    <% if @user.description.present? %>
+      <p class="self-introduction gray"><%= @user.description %></p> 
+    <% end %>
+    <% if current_user.id == @user.id %>
+      <p><%= link_to "設定", edit_user_path(id: current_user.id), class: "gray btn btn-default" %></p>
+    <% end %>
+  </div>
+</div>

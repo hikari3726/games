@@ -1,0 +1,5 @@
+<% if game.reviews.present? %>
+  <p class="count"><%= image_tag "star-on.png", class: "star" %> <%= game.reviews.average(:evalution) %>　</p>
+<% else %>
+  <p class="count"><%= image_tag "star-on.png", class: "star" %> ー　</p>
+<% end %>

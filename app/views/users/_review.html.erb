@@ -1,0 +1,10 @@
+<% if review != nil %>
+  <div class="top-games inline">
+    <%= link_to game_review_path(game_id: review.game_id, id: review.id), class: 'link' do %>
+      <%= render partial: "pages/game_image", locals: { game: review.game } %>
+      <p class="game-title center"><%= review.game.title.truncate(10) %></p>
+      <p class="des"><%= review.comment.truncate(55) %></p>
+      <p class="user-name center">by <%= review.user.name %>  </p>
+    <% end %>
+  </div>
+<% end %>

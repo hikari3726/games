@@ -1,47 +1,25 @@
-<div class="user-show-wrapper top-blank">
+<div class="review-favorite-wrapper top-blank">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8">
-        <div class="up-user-show-container">
-          <div class="image inline">
-            <% if @user.image.present? %>
-              <%= image_tag @user.image.url, class: "user-image center" %>
-            <% else %>
-              <%= image_tag "live.jpg", class: "user-image center" %>
-            <% end %>
-          </div>
-          <div class="user-introduction inline">
-            <h3><%= @user.name %></h3>
-            <%= link_to "フォロー　", "#", class: "gray link" %>
-            <p class="inline gray">|</p>
-            <%= link_to "　フォロワー", "#", class: "gray link" %>
-            <% if @user.description.present? %>
-              <p class="self-introduction gray"><%= @user.description %></p> 
-            <% end %>
-            <%= link_to "設定", edit_user_path(id: current_user.id), class: "gray btn btn-default" %>
-          </div>
-        </div>
+        <%= render 'introduction' %>
       
-        <div class="under-user-show-container">
+        <div class="review-favorite-container">
           <div class="center">
-            <p class="gray inline post-favorite post">投稿</p>
-            <p><%= link_to "お気に入り", "#", class: "inline link gray post-favorite favorite" %></p>
+            <p class="items orange">レビュー一覧</p>
+            <p><%= link_to "お気に入り", user_favorites_path(user_id: params[:id]), class: "items black" %></p>
           </div>
           
-          <div class="topic-container">
-            <% @user.topics.each_slice(4) do |topic1,topic2,topic3, topic4| %>
-            
-            <div class="retu">
-             <%#= render partial: "topics", locals: { topic: topic1 } %>
-             <%#= render partial: "topics", locals: { topic: topic2 } %>
-             <%#= render partial: "topics", locals: { topic: topic3 } %>
-             <%#= render partial: "topics", locals: { topic: topic4 } %>
-            </div>
-              
+          <div class="topics">
+            <% @user.reviews.each_slice(4) do |review1, review2, review3, review4| %>
+              <%= render partial: "review", locals: { review: review1 } %>
+              <%= render partial: "review", locals: { review: review2 } %>
+              <%= render partial: "review", locals: { review: review3 } %>
+              <%= render partial: "review", locals: { review: review4 } %>
             <% end %>
           </div>
-          
         </div>
+        
       </div>
     </div>
   </div>

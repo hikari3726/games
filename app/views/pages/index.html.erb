@@ -9,15 +9,9 @@
     <div class="text-container">
       <h1 class="text center">お気に入りのゲームを見つけよう!</h1>
       <div class="buttoms center">
-      <%= link_to "#", class: "btn btn-default" do %>
-        <%= image_tag "pen.jpg", class: "text-image" %>最新投稿
-      <% end %>
-      <%= link_to "#", class: "btn btn-default" do %>
-        <%= image_tag "rank.jpg", class: "text-image" %>ランキング
-      <% end %>
-      <%= link_to "#", class: "btn btn-default" do %>
-        <%= image_tag "glasses.jpg", class: "text-image" %>投稿検索
-      <% end %>
+        <a href="#game_show", class="btn btn-default"><%= image_tag "card.png", class: "text-image" %>ゲーム一覧</a>
+        <a href="#review_show", class="btn btn-default"><%= image_tag "comment2.png", class: "text-image" %>レビュー一覧</a>
+        <a href="#rank_show", class="btn btn-default"><%= image_tag "ranking.png", class: "text-image" %>ランキング</a>
       </div>
     </div>
 　</div>
@@ -25,25 +19,57 @@
 　<div class="container">
 　  <div class="row">
       <div class="row-container col-md-offset-1 col-md-10">
-        <div class="item">
-          <p class ="item-name gray">最新投稿</p>
-          <div class="topic">
-         
+        <div id="game_show" class="item-container">
+          <%= link_to "ゲーム一覧", games_path, class: "item-name" %>
+          <div class="topic center">
+            <% @games.first(5).each do |game| %>
+              <div class="top-games">
+                <%= link_to game_path(id: game.id), class: 'item' do %>
+                  <%= render partial: "game_image", locals: { game: game } %>
+                  <p class="game-title center"><%= game.title.truncate(10) %></p>
+                  <div class="center">
+                    <%= render partial: "evalution", locals: { game: game } %>
+                    <p class="count">( <%= game.reviews.count %> 件)</p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
-        <div class="item">
-          <p class="item-name gray">ランキング</p>
-          <div class="topic">
-            
+        
+        <div id="review_show" class="item-container">
+          <%= link_to "レビュー一覧", reviews_path, class: "item-name" %>
+          <div class="review-topic center">
+            <% @reviews.first(5).each do |review| %>
+              <div class="top-games">
+                <%= link_to game_review_path(game_id: review.game_id, id: review.id), class: 'item' do %>
+                  <%= render partial: "game_image", locals: { game: review.game } %>
+                  <p class="game-title center"><%= review.game.title.truncate(10) %></p>
+                  <p class="des"><%= review.comment.truncate(55) %></p>
+                  <p class="user-name center">by <%= review.user.name %>  </p>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
-        <div class="item">
-          <p class="item-name gray">投稿検索</p>
-          <div class="topic">
-            
+        
+        <div id="rank_show" class="item-container">
+          <%= link_to "ランキング", rank_games_path, class: "item-name" %>
+          <div class="topic center">
+            <% @games_rank.each do |game| %>
+              <div class="top-games">
+                <%= link_to game_path(id: game.id), class: 'item' do %>
+                  <%= render partial: "game_image", locals: { game: game } %>
+                  <p class="game-title center"><%= game.title.truncate(10) %></p>
+                  <div class="favorite center">
+                    <%= render partial: "heart", locals: { game: game } %>
+                    <p class="count">( <%= game.reviews.count %> 件)</p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
-    
       </div>
     </div>
   </div>
@@ -55,6 +81,18 @@
         autoplaySpeed: 3000,
         });
      });
+  </script>
+  
+  <script>
+    $('a[href^="#"]').click(function() {
+      var headerHight = 80;
+      var speed = 400; 
+      var href = $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top - headerHight;
+      $('body,html').animate({scrollTop: position}, speed, 'swing');
+      return false;
+    });
   </script>
   
 </div>

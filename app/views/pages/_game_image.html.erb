@@ -1,0 +1,5 @@
+<% if game.image.present? %>
+  <p class='center'><%= image_tag game.image.url, class: 'image' %></p>
+<% else %>
+  <p class='center'><%= image_tag "noimage-game.jpg", class: 'image' %></p>
+<% end %>

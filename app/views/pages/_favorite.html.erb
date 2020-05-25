@@ -1,0 +1,5 @@
+<% if game.favorites.present? %>
+  <p class="count"><%= image_tag "pink-heart.png", class: "star" %> <%= game.favorites.count %>　</p>
+<% else %>
+  <p class="count"><%= image_tag "pink-heart.png", class: "star" %> ー　</p>
+<% end %>

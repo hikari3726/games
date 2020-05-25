@@ -1,0 +1,11 @@
+<p class="genre">ジャンル　：　<%= game.genre %></p>
+<p class="participation">参加人数　：　<%= game.participation %></p>
+<p class="target_age">対象年齢　：　<%= game.target_age %></p>
+<p class="play_time">プレイ時間　：　<%= game.play_time %></p>
+<p class="price">参考価格　：　<%= game.price %></p>
+<% if game.reviews.present? %>
+  <p class="evaluation">評価　：　<%= game.reviews.average(:evalution) %></p>
+<% else %>
+  <p class="evaluation">評価　：　ー</p>
+<% end %>
+<p class="favorite">お気に入り　：　<%= game.favorites.count %></p>

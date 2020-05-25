@@ -1,0 +1,8 @@
+<% if game != nil %> 
+  <div class="top-games inline">
+    <%= link_to "#", class: 'link' do %>
+      <%= render partial: "pages/game_image", locals: { game: game } %>
+      <p class="game-title center"><%= game.title.truncate(10) %></p>
+    <% end %>
+  </div>
+<% end %>

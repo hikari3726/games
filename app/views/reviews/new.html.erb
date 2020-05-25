@@ -3,10 +3,15 @@
     <div class="row">
       <div class="review-new-container col-md-offset-2 col-md-8">
         <div class="title-container">
-          <p class="title gray">投稿</p>
+          <p class="title gray"><%= @game.title %></p>
+        </div>
+        
+        <div class="entry-field">
+          
+            <%= render partial: "entry-field", locals: { register: "レビュー投稿" } %>
+          
         </div>
       </div>
-      
     </div>
   </div>
 </div>

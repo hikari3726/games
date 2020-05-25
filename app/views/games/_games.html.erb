@@ -1,10 +1,18 @@
 <% if game != nil %>
   <div class="topics inline">
     <%= link_to game_path(id: game.id), class: 'item' do %>
-      <p class='center'><%= image_tag game.image.url, class: 'image' %></p>
+      <% if game.image.present? %>
+        <p class='center'><%= image_tag game.image.url, class: 'image' %></p>
+      <% else %>
+        <p class='center'><%= image_tag "noimage-game.jpg", class: 'image' %></p>
+      <% end %>
       <p class="game-title center"><%= game.title.truncate(15) %></p>
       <p class="des"><%= game.description.truncate(100) %></p>
-      <p class="eva center"><%= image_tag "star.jpeg", class: "star-image" %>  (　件)</p>
+      <div class="center des">
+        <%= render partial: "pages/evalution", locals: { game: game } %>
+        <%= render partial: "pages/favorite", locals: { game: game } %>
+        <p class="count">( <%= game.reviews.count %> 件)</p>
+      </div>
     <% end %>
   </div>
 <% end %>

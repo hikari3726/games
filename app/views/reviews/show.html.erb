@@ -1,2 +1,43 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<div class="review-show-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="review-show-container col-md-offset-2 col-md-8">
+        
+        <div class="title-container">
+          <p class="title"><%= @review.game.title %></p>
+        </div>
+        
+        <div class="review-container">
+          <div class="left-review inline">
+            <%= link_to user_path(id: @review.user_id) do %>
+              <%= image_tag @review.user.image.url, class: 'user-image' %>
+            <% end %>
+          </div>
+          <div class="right-review inline">
+            <div class="title-container">
+              <p class="title"><%= @review.user.name %>のレビュー</p>
+            </div>
+            <p class="review"><%= @review.comment %></p>
+            <% if current_user.id == @review.user.id %>
+              <div class="center">
+                <%= link_to "レビューを編集", edit_game_review_path(game_id: @review.game_id, id: @review.id), class: "btn btn-default" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="game-detail center">
+          <%= link_to game_path(id: @review.game.id), class: "game-reference" do %>
+            <div class="left-game-detail inline">
+              <%= render partial: "pages/game_image", locals: { game: @review.game } %>
+            </div>
+            <div class="right-game-detail inline">
+              <%= render partial: "games/reference", locals: { game: @review.game } %>
+            </div>
+          <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
