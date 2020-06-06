@@ -14,7 +14,7 @@ class GamesController < ApplicationController
   end
   
   def index
-    @games = Game.all
+    @games = Game.all.search(params[:search])
   end
   
   def show
@@ -36,6 +36,14 @@ class GamesController < ApplicationController
   
   def rank
     @games_rank = Game.find(Favorite.group(:game_id).order('count(game_id) desc').limit(5).pluck(:game_id))
+  end
+  
+  def search
+    if params[:title].present?
+      @games = Game.where("title LIKE ?", "%{params[:title]%}")
+    else
+      @games = Game.none
+    end
   end
     
   private

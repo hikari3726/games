@@ -199,6 +199,26 @@ footer {
     color: #777777;
     font-size: 12px;
   }
+  
+  .game-image {
+    position: relative;
+  }
+  
+  .rank-background {
+    background-color: #FFCC99;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    left: 14px;
+  }
+  
+  .rank {
+    margin: 0;
+    color: white;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    font-size: 18px;
+  }
 }
 
 /*新規登録・ログイン*/
@@ -423,6 +443,15 @@ footer {
     border-left: thick solid #FFCC99;
   }
   
+  .game-search {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .search-btn {
+    text-align: right;
+  }
+  
   .image {
     border-radius: 10%;
     height: 200px;
@@ -550,7 +579,10 @@ footer {
     
     .review-post {
       width: 90%;
-      margin: 35px auto;
+      margin: 25px auto;
+      background-color: #EEEEEE;
+      padding: 10px 20px;
+      border-radius: 10px;
     }
   }
   
@@ -748,6 +780,7 @@ footer {
   
   .left-game-details {
     width: 14%;
+    text-align: center;
   }
   
   .medium-game-details {
@@ -798,6 +831,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50px;
   }
 
   .left-item {

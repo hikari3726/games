@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :reviews
     collection do
       get :rank
+      get :search
     end
   end
   

@@ -7,71 +7,26 @@
         </div>
         
         <div class="rank">
-          <% @games_rank.each do |game| %>
-            <div class="game-details">
-              
-              <%= render partial: "rank", locals: { ranking: "rank1.jpg" } %>
-  
-              <div class="medium-game-details inline">
-                <% if game.image.present? %>
-                  <%= image_tag game.image.url, class: 'game-image' %>
-                <% else %>
-                  <%= image_tag "live.jpg", class: 'game-image' %>
-                <% end %>
-              </div>
-              <div class="right-game-details inline">
-                <p class="game-title"><%= game.title %></p>
-                <p class="game-description"><%= game.description.truncate(150) %></p>
-                <div class="information">
-                  <div class="favorite item">
-                    <div class="left-item inline">
-                      <%= image_tag "star.png", class: "star" %>
-                    </div>
-                    <div class="right-item inline">
-                      <p class="details">お気に入り</p>
-                      <p class="details"><%= game.favorites.count %></p>
-                    </div>
-                  </div>
-                  <div class="review item">
-                    <div class="left-item inline">
-                      <%= image_tag "comment1.png", class: "comment" %>
-                    </div>
-                    <div class="right-item inline">
-                      <p class="details">レビュー</p>
-                      <p class="details"><%= game.reviews.count %>件</p>
-                    </div>
-                  </div>
-                  <div class="participation item">
-                    <div class="left-item inline">
-                      <%= image_tag "groups.png", class: "group" %>
-                    </div>
-                    <div class="right-item inline">
-                      <p class="details">参加人数</p>
-                      <p class="details"><%= game.participation %></p>
-                    </div>
-                  </div>
-                  <div class="pray-time item">
-                    <div class="left-item inline">
-                      <%= image_tag "clock.png", class: "clock" %>
-                    </div>
-                    <div class="right-item inline">
-                      <p class="details">プレイ時間</p>
-                      <p class="details"><%= game.play_time %></p>
-                    </div>
-                  </div>
-                  <div class="age item">
-                    <div class="left-item inline">
-                      <%= image_tag "human", class: "human" %>
-                    </div>
-                    <div class="right-item inline">
-                      <p class="details">対象年齢</p>
-                      <p class="details"><%= game.target_age %></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
+          <div class="game-details">
+            <%= render partial: "rank", locals: { ranking: "rank1.jpg" } %>
+            <%= render partial: "rank_game", locals: { game: @games_rank.first } %>
+          </div>
+          <div class="game-details">
+            <%= render partial: "rank", locals: { ranking: "rank2.jpg" } %>
+            <%= render partial: "rank_game", locals: { game: @games_rank.second } %>
+          </div>
+          <div class="game-details">
+            <%= render partial: "rank", locals: { ranking: "rank3.jpg" } %>
+            <%= render partial: "rank_game", locals: { game: @games_rank.third } %>
+          </div>
+          <div class="game-details">
+            <%= render partial: "rank", locals: { ranking: "rank4.jpg" } %>
+            <%= render partial: "rank_game", locals: { game: @games_rank.fourth } %>
+          </div>
+          <div class="game-details">
+            <%= render partial: "rank", locals: { ranking: "rank5.jpg" } %>
+            <%= render partial: "rank_game", locals: { game: @games_rank.fifth } %>
+          </div>
         </div>
         
       </div>

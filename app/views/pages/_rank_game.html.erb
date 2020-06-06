@@ -1,0 +1,5 @@
+<p class="game-title center"><%= game.title.truncate(10) %></p>
+<div class="favorite center">
+  <%= render partial: "favorite", locals: { game: game } %>
+  <p class="count">( <%= game.reviews.count %> 件)</p>
+</div>

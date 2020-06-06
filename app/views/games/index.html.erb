@@ -8,6 +8,12 @@
         <div class="link-btn">
           <%= link_to "ゲーム投稿", new_game_path, class: "btn btn-default" %>
         </div>
+        <div class="game-search">
+          <%= form_tag(games_path, :method => "get") do %>
+            <%= text_field_tag :search, "", {class: "form-control"} %>
+            <p class="search-btn"><%= submit_tag "検索" ,:title => nil ,class: "btn btn-default"%></p> 
+          <% end %>  
+        </div>
         <div class="game-topic">
           <% @games.each_slice(3) do |game1, game2, game3| %>
             <div class="line">
