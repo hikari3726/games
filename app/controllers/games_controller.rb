@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :require_login, {only: [:new, :create, :edit, :update]}
   
   def new
     @game = Game.new
@@ -50,5 +51,5 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:user_id, :image, :title, :description, :genre, :participation, :target_age, :play_time, :price)
   end
-  
+
 end

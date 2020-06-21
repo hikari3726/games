@@ -1,8 +1,9 @@
+<%= link_to game_path(id: game.id), class: "rank_game_link" do %>
 <div class="medium-game-details inline">
   <% if game.image.present? %>
     <%= image_tag game.image.url, class: 'game-image' %>
   <% else %>
-    <%= image_tag "live.jpg", class: 'game-image' %>
+    <%= image_tag "noimage-game.jpg", class: 'game-image' %>
   <% end %>
 </div>
 <div class="right-game-details inline">
@@ -60,3 +61,4 @@
     </div>
   </div>
 </div>
+<% end %>

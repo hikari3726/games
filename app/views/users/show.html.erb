@@ -1,25 +1,26 @@
-<div class="review-favorite-wrapper top-blank">
+<div class="user-show-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8">
-        <%= render 'introduction' %>
-      
-        <div class="review-favorite-container">
-          <div class="center">
-            <p class="items orange">レビュー一覧</p>
-            <p><%= link_to "お気に入り", user_favorites_path(user_id: params[:id]), class: "items black" %></p>
-          </div>
-          
-          <div class="topics">
-            <% @user.reviews.each_slice(4) do |review1, review2, review3, review4| %>
-              <%= render partial: "review", locals: { review: review1 } %>
-              <%= render partial: "review", locals: { review: review2 } %>
-              <%= render partial: "review", locals: { review: review3 } %>
-              <%= render partial: "review", locals: { review: review4 } %>
-            <% end %>
-          </div>
-        </div>
+        <div class="user-show-container">
+          <%= render 'introduction' %>
         
+          <div class="review-favorite-container">
+            <div class="center">
+              <p class="items orange">レビュー一覧</p>
+              <p><%= link_to "お気に入り", user_favorites_path(user_id: params[:id]), class: "items black" %></p>
+            </div>
+          
+            <div class="topics">
+              <% @user.reviews.each_slice(4) do |review1, review2, review3, review4| %>
+                <%= render partial: "review", locals: { review: review1 } %>
+                <%= render partial: "review", locals: { review: review2 } %>
+                <%= render partial: "review", locals: { review: review3 } %>
+                <%= render partial: "review", locals: { review: review4 } %>
+              <% end %>
+            </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>

@@ -8,9 +8,6 @@
   </div>
   <div class="user-introduction inline">
     <h3 class="user-name"><%= @user.name %></h3>
-    <%= link_to "フォロー　", "#", class: "gray link" %>
-    <p class="inline gray">|</p>
-    <%= link_to "　フォロワー", "#", class: "gray link" %>
     <% if @user.description.present? %>
       <p class="self-introduction gray"><%= @user.description %></p> 
     <% end %>

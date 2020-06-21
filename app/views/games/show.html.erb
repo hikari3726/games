@@ -12,9 +12,9 @@
             <%= render partial: "pages/game_image", locals: { game: @game } %>
             <div class="favorite center">
               <% if !@game.favorite_users.include?(current_user) %>
-                <%= link_to "お気に入り", favorites_path(game_id: @game.id), class: "btn btn-default",  method: :post %>
+                <%= link_to "お気に入り", favorites_path(game_id: params[:id]), class: "btn btn-default",  method: :post %>
               <% else %>
-                <%= link_to "お気に入り解除", favorites_path(game_id: @game.id), class: "btn btn-warning",  method: :delete %>
+                <%= link_to "お気に入り解除", favorites_path(game_id: params[:id]), class: "btn btn-warning",  method: :delete %>
               <% end %>
             </div>
             <div class="reference">
@@ -47,7 +47,7 @@
                 <div class="review-post">
                   <%= link_to game_review_path(game_id: review.game_id, id: review.id), class: "review-link" do %>
                     <div class="user-image-container inline">
-                      <%= image_tag review.user.image.url, class: "user-image center" %>
+                      <%= render partial: "users/user_image", locals: { user: review.user } %>
                     </div>
                     <div class="comment-container inline">
                     <p class="comment-user-name"><%= review.user.name %>さんのレビュー</p>

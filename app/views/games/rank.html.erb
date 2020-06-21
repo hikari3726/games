@@ -8,24 +8,34 @@
         
         <div class="rank">
           <div class="game-details">
-            <%= render partial: "rank", locals: { ranking: "rank1.jpg" } %>
-            <%= render partial: "rank_game", locals: { game: @games_rank.first } %>
+            <% if @games_rank.first.present? %>
+              <%= render partial: "rank", locals: { ranking: "rank1.jpg" } %>
+              <%= render partial: "rank_game", locals: { game: @games_rank.first } %>
+            <% end %>
           </div>
           <div class="game-details">
-            <%= render partial: "rank", locals: { ranking: "rank2.jpg" } %>
-            <%= render partial: "rank_game", locals: { game: @games_rank.second } %>
+            <% if @games_rank.second.present? %>
+              <%= render partial: "rank", locals: { ranking: "rank2.jpg" } %>
+              <%= render partial: "rank_game", locals: { game: @games_rank.second } %>
+            <% end %>
           </div>
           <div class="game-details">
-            <%= render partial: "rank", locals: { ranking: "rank3.jpg" } %>
-            <%= render partial: "rank_game", locals: { game: @games_rank.third } %>
+            <% if @games_rank.third.present? %>
+              <%= render partial: "rank", locals: { ranking: "rank3.jpg" } %>
+              <%= render partial: "rank_game", locals: { game: @games_rank.third } %>
+            <% end %>
           </div>
           <div class="game-details">
-            <%= render partial: "rank", locals: { ranking: "rank4.jpg" } %>
-            <%= render partial: "rank_game", locals: { game: @games_rank.fourth } %>
+            <% if @games_rank.fourth.present? %>
+              <%= render partial: "rank", locals: { ranking: "rank4.jpg" } %>
+              <%= render partial: "rank_game", locals: { game: @games_rank.fourth } %>
+            <% end %>
           </div>
           <div class="game-details">
-            <%= render partial: "rank", locals: { ranking: "rank5.jpg" } %>
-            <%= render partial: "rank_game", locals: { game: @games_rank.fifth } %>
+            <% if @games_rank.fifth.present? %>
+              <%= render partial: "rank", locals: { ranking: "rank5.jpg" } %>
+              <%= render partial: "rank_game", locals: { game: @games_rank.fifth } %>
+            <% end %>
           </div>
         </div>
         

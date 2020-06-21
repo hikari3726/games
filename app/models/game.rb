@@ -4,14 +4,13 @@ class Game < ApplicationRecord
   
   validates :user_id, presence: true
   validates :description, presence: true, length: { maximum: 500 }
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :genre, presence: { message: "を選択してください"}
   validates :participation, presence: { message: "を選択してください"}
   validates :target_age, presence: { message: "を選択してください"}
   validates :play_time, presence: { message: "を選択してください"}
   validates :price, presence: { message: "を選択してください"}
   validate :image_size
-  
   
   belongs_to :user
   has_many :reviews

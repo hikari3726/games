@@ -1,24 +1,26 @@
-<div class="fovorite-index-wrapper top-blank">
+<div class="fovorite-index-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8">
-        <%= render 'users/introduction' %>
+        <div class="favorite-index-container">
+          <%= render 'users/introduction' %>
       
-        <div class="review-favorite-container">
-          <div class="center">
-            <p><%= link_to "レビュー一覧", user_path(id: @user.id), class: "items black" %></p>
-            <p class="items orange">お気に入り</p>
-          </div>
+          <div class="review-favorite-container">
+            <div class="center">
+              <p><%= link_to "レビュー一覧", user_path(id: @user.id), class: "items black" %></p>
+              <p class="items orange">お気に入り</p>
+            </div>
           
-          <div class="topics">
-            <% @favorite_games.each_slice(4) do |game1, game2, game3, game4| %>
-              <%= render partial: "game", locals: { game: game1 } %>
-              <%= render partial: "game", locals: { game: game2 } %>
-              <%= render partial: "game", locals: { game: game3 } %>
-              <%= render partial: "game", locals: { game: game4 } %>
-            <% end %>
-          </div>
+            <div class="topics">
+              <% @favorite_games.each_slice(4) do |game1, game2, game3, game4| %>
+                <%= render partial: "game", locals: { game: game1 } %>
+                <%= render partial: "game", locals: { game: game2 } %>
+                <%= render partial: "game", locals: { game: game3 } %>
+                <%= render partial: "game", locals: { game: game4 } %>
+              <% end %>
+            </div>
           
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :require_login, {only: [:new, :edit]}
   
   def new
     @game = Game.find_by(id: params[:game_id])

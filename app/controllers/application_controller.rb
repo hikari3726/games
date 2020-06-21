@@ -10,4 +10,15 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
   
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+  
+  private
+    def require_login
+      unless logged_in?
+        redirect_to login_path, danger: "ログインしてください"
+      end
+    end  
+  
 end

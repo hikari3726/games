@@ -1,0 +1,5 @@
+<% if user.image.present? %>
+  <%= image_tag user.image.url, class: "user-image center" %>
+<% else %>
+  <%= image_tag "noimage-man.jpg", class: "user-image center" %>
+<% end %>

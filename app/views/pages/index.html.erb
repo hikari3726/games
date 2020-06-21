@@ -57,58 +57,68 @@
           <%= link_to "ランキング", rank_games_path, class: "item-name" %>
           <div class="topic center">
             <div class="top-games">
-              <%= link_to game_path(id: @games_rank.first.id), class: 'item' do %>
-                <div class="game-image">
-                  <div class="rank-background center">
-                    <p class="rank">1</p>
+              <% if @games_rank.first.present? %>
+                <%= link_to game_path(id: @games_rank.first.id), class: 'item' do %>
+                  <div class="game-image">
+                    <div class="rank-background center">
+                      <p class="rank">1</p>
+                    </div>
+                    <%= render partial: "game_image", locals: { game: @games_rank.first } %>
                   </div>
-                  <%= render partial: "game_image", locals: { game: @games_rank.first } %>
-                </div>
-                <%= render partial: "rank_game", locals: { game: @games_rank.first } %>
+                  <%= render partial: "rank_game", locals: { game: @games_rank.first } %>
+                <% end %>
               <% end %>
             </div>
             <div class="top-games">
-              <%= link_to game_path(id: @games_rank.second.id), class: 'item' do %>
-                <div class="game-image">
-                  <div class="rank-background center">
-                    <p class="rank">2</p>
+              <% if @games_rank.second.present? %>
+                <%= link_to game_path(id: @games_rank.second.id), class: 'item' do %>
+                  <div class="game-image">
+                    <div class="rank-background center">
+                      <p class="rank">2</p>
+                    </div>
+                    <%= render partial: "game_image", locals: { game: @games_rank.second } %>
                   </div>
-                  <%= render partial: "game_image", locals: { game: @games_rank.second } %>
-                </div>
-                <%= render partial: "rank_game", locals: { game: @games_rank.second } %>
+                  <%= render partial: "rank_game", locals: { game: @games_rank.second } %>
+                <% end %>
               <% end %>
             </div>
             <div class="top-games">
-              <%= link_to game_path(id: @games_rank.third.id), class: 'item' do %>
-                <div class="game-image">
-                  <div class="rank-background center">
-                    <p class="rank">3</p>
+              <% if @games_rank.third.present? %>
+                <%= link_to game_path(id: @games_rank.third.id), class: 'item' do %>
+                  <div class="game-image">
+                    <div class="rank-background center">
+                      <p class="rank">3</p>
+                    </div>
+                    <%= render partial: "game_image", locals: { game: @games_rank.third } %>
                   </div>
-                  <%= render partial: "game_image", locals: { game: @games_rank.third } %>
-                </div>
-                <%= render partial: "rank_game", locals: { game: @games_rank.third } %>
+                  <%= render partial: "rank_game", locals: { game: @games_rank.third } %>
+                <% end %>
               <% end %>
             </div>
             <div class="top-games">
-              <%= link_to game_path(id: @games_rank.fourth.id), class: 'item' do %>
-                <div class="game-image">
-                  <div class="rank-background center">
-                    <p class="rank">4</p>
+              <% if @games_rank.fourth.present? %>
+                <%= link_to game_path(id: @games_rank.fourth.id), class: 'item' do %>
+                  <div class="game-image">
+                    <div class="rank-background center">
+                      <p class="rank">4</p>
+                    </div>
+                    <%= render partial: "game_image", locals: { game: @games_rank.fourth } %>
                   </div>
-                  <%= render partial: "game_image", locals: { game: @games_rank.fourth } %>
-                </div>
-                <%= render partial: "rank_game", locals: { game: @games_rank.fourth } %>
+                  <%= render partial: "rank_game", locals: { game: @games_rank.fourth } %>
+                <% end %>
               <% end %>
             </div>
             <div class="top-games">
-              <%= link_to game_path(id: @games_rank.fifth.id), class: 'item' do %>
-                <div class="game-image">
-                  <div class="rank-background center">
-                    <p class="rank">5</p>
+              <% if @games_rank.fifth.present? %>
+                <%= link_to game_path(id: @games_rank.fifth.id), class: 'item' do %>
+                  <div class="game-image">
+                    <div class="rank-background center">
+                      <p class="rank">5</p>
+                    </div>
+                    <%= render partial: "game_image", locals: { game: @games_rank.fifth } %>
                   </div>
-                  <%= render partial: "game_image", locals: { game: @games_rank.fifth } %>
-                </div>
-                <%= render partial: "rank_game", locals: { game: @games_rank.fifth } %>
+                  <%= render partial: "rank_game", locals: { game: @games_rank.fifth } %>
+                <% end %>
               <% end %>
             </div>
           </div>
